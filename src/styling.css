@@ -1,0 +1,38 @@
+body{
+    padding: 25px;
+}
+
+ul{
+    list-style: none;
+    padding: 0px;
+}
+
+a{
+    text-decoration: none;
+    color: #425F57;
+}
+
+a:hover{
+    color: #749F82;
+}
+
+.weather-app{
+    font-family: 'Poppins', sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px #425F57 solid;
+    border-radius: 4px;
+}
+
+.date-description{
+    font-size: 12px;
+}
+
+.link-details{
+    font-size: 13px;
+}
+
+#degrees, #celsius, #farengheit, #line{
+    font-size: 25px;
+}
