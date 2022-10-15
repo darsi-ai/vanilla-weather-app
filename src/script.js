@@ -11,6 +11,7 @@ let dayTime = document.querySelector("#dayTime");
 dayTime.innerHTML = `${day} ${hour}:${minutes}`;
 
 function displayTemparature(response){
+    console.log(response.data);
     let cityName = document.querySelector("#city");
     cityName.innerHTML = `${response.data.name}`
     let desc = document.querySelector("#description");
@@ -27,7 +28,8 @@ function displayTemparature(response){
 }
 
 let apiKey = "64e797c428bddfb60f42d1075443623c";
-let apiWeather = `https://api.openweathermap.org/data/2.5/weather?q=Florence&appid=${apiKey}&units=metric`;
+let city = "Kyiv";
+let apiWeather = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 
 axios.get(apiWeather).then(displayTemparature);
