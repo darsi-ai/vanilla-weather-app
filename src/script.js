@@ -11,13 +11,13 @@ let dayTime = document.querySelector("#dayTime");
 dayTime.innerHTML = `${day} ${hour}:${minutes}`;
 
 function displayTemparature(response){
-    let iconElem = document.querySelector("#icon");
     let cityName = document.querySelector("#city");
     let desc = document.querySelector("#description");
     let deg = document.querySelector("#degrees");
     let feelLike = document.querySelector("#feelsLike");
     let hum = document.querySelector("#humidity");
     let windVal = document.querySelector("#wind");
+    let iconElem = document.querySelector("#icon");
     
     cityName.innerHTML = `${response.data.name}`;
     desc.innerHTML = `${response.data.weather[0].description}`;
@@ -26,7 +26,7 @@ function displayTemparature(response){
     hum.innerHTML = `humidity: ${response.data.main.humidity}%`;
     windVal.innerHTML = `wind: ${response.data.wind.speed} km/h`;
     iconElem.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-    iconElem.setAttribute("alt", `${response.data.weatehr[0].description}`);
+    iconElem.setAttribute("alt", `${response.data.weathеr[0].description}`);
 }
 
 let apiKey = "64e797c428bddfb60f42d1075443623c";
