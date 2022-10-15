@@ -28,6 +28,8 @@ a:hover{
 
 .link-details{
     font-size: 13px;
+    display: block;
+    margin: 0 auto;
 }
 
 
