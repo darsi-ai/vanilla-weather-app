@@ -11,7 +11,6 @@ let dayTime = document.querySelector("#dayTime");
 dayTime.innerHTML = `${day} ${hour}:${minutes}`;
 
 function displayTemparature(response){
-    console.log(response);
     let cityName = document.querySelector("#city");
     cityName.innerHTML = `${response.data.name}`
     let desc = document.querySelector("#description");
