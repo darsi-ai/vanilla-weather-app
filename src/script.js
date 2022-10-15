@@ -11,7 +11,6 @@ let dayTime = document.querySelector("#dayTime");
 dayTime.innerHTML = `${day} ${hour}:${minutes}`;
 
 function displayTemparature(response){
-    console.log(response.data);
     let iconElem = document.querySelector("#icon");
     iconElem.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     let cityName = document.querySelector("#city");
