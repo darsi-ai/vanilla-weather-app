@@ -26,12 +26,19 @@ function displayTemparature(response){
     hum.innerHTML = `humidity: ${response.data.main.humidity}%`;
     windVal.innerHTML = `wind: ${response.data.wind.speed} km/h`;
     iconElem.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-    iconElem.setAttribute("alt", `${response.data.weathеr[0].description}`);
+    iconElem.setAttribute("alt", `${response.data.weather[0].description}`);
 }
 
 let apiKey = "64e797c428bddfb60f42d1075443623c";
 let city = "Kyiv";
 let apiWeather = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-
 axios.get(apiWeather).then(displayTemparature);
+
+function search(event){
+    event.preventDefault();
+    let city = document.querySelector("#city-input");
+    console.log(city.value);
+}
+
+let form = document.querySelector("#input-form");
+form.addEventListener("submit", search);
