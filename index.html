@@ -14,10 +14,16 @@
 </head>
 <body>
     <div class="container weather-app">
-        <div id = "input-form", class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="input the city" aria-label="city name" aria-describedby="button-addon2" id="city-input">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2">search</button>
-        </div>   
+        <form action="" id="input-form">
+            <div class="row">
+                <div class="col-9">
+                    <input type="search" class="form-control" id="city-input" placeholder="type a city" autofocus="on">
+                </div>
+                <div class="col-3">
+                    <input type="submit" value="search" class="btn btn-light">
+                </div>
+            </div>
+        </form>   
         <h1 id="city">city</h1>
         <ul>
             <li>
