@@ -27,6 +27,8 @@ function defaultWeather(){
             let hum = document.querySelector("#humidity");
             let windVal = document.querySelector("#wind");
             let iconElem = document.querySelector("#icon");
+            
+            celsiusTemp = response.data.main.temp;
                 
             cityName.innerHTML = `${response.data.name}`;
             desc.innerHTML = `${response.data.weather[0].description}`;
@@ -64,6 +66,8 @@ function search(event){
         let windVal = document.querySelector("#wind");
         let iconElem = document.querySelector("#icon");
         
+        celsiusTemp = response.data.main.temp;
+        
         cityName.innerHTML = `${response.data.name}`;
         desc.innerHTML = `${response.data.weather[0].description}`;
         deg.innerHTML = `${Math.round(response.data.main.temp)}°`;
@@ -80,10 +84,25 @@ form.addEventListener("submit", search);
 
 function changeToFarengheit(event){
     event.preventDefault();
+    celsiusLink.classList.remove("active");
+    fahrengheitLink.classList.add("active");
     let baseTemp = document.querySelector("#degrees");
-    let tempInt = parseInt(baseTemp.innerHTML, 10)
-    fahrengheitTemp = Math.round((tempInt * 9)/5 + 32);
-    baseTemp.innerHTML = fahrengheitTemp;
+    fahrengheitTemp = Math.round((celsiusTemp * 9)/5 + 32);
+    baseTemp.innerHTML = `${fahrengheitTemp}°`;
 }
+
+function changeToCelsius(event){
+    event.preventDefault();
+    fahrengheitLink.classList.remove("active");
+    celsiusLink.classList.add("active");
+    let baseTemp = document.querySelector("#degrees");
+    baseTemp.innerHTML = `${Math.round(celsiusTemp)}°`;
+}
+
+let celsiusTemp = null;
+
 let fahrengheitLink = document.querySelector("#fahrengheit");
-fahrengheitLink.addEventListener("click", changeToFarengheit)
+fahrengheitLink.addEventListener("click", changeToFarengheit);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", changeToCelsius)

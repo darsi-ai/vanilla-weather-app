@@ -31,6 +31,10 @@ a:hover{
     text-align: center;
 }
 
+.active{
+    color: #749F82;
+    cursor: default;
+}
 
 #degrees, #celsius, #fahrengheit, #line{
     font-size: 25px;
