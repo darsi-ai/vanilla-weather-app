@@ -36,6 +36,20 @@ a:hover{
     cursor: default;
 }
 
+.weather-forecast{
+    text-align: center;
+}
+
+.min-temp{
+    opacity: 0.6;
+}
+
+.forecast-icon{
+    display: block;
+    margin: 0 auto;
+    width: 42;
+}
+
 #degrees, #celsius, #fahrengheit, #line{
     font-size: 25px;
 }
