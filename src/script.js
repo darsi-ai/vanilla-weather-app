@@ -8,10 +8,16 @@ if (minutes < 10){
 }
 if (hour < 10){
     hour = "0"+hour;
-  }
+}
 
 let dayTime = document.querySelector("#dayTime");
 dayTime.innerHTML = `${day} ${hour}:${minutes}`;
+
+function forecast(){
+    let forecastElement = document.querySelector("#forecast");
+
+    forecastElement.innerHTML = "Forecast"
+}
 
 function defaultWeather(){
     function getGeo(position) {
@@ -27,6 +33,7 @@ function defaultWeather(){
             let hum = document.querySelector("#humidity");
             let windVal = document.querySelector("#wind");
             let iconElem = document.querySelector("#icon");
+            forecast();
             
             celsiusTemp = response.data.main.temp;
                 
