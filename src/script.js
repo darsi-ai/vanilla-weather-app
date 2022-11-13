@@ -13,24 +13,6 @@ if (hour < 10){
 let dayTime = document.querySelector("#dayTime");
 dayTime.innerHTML = `${day} ${hour}:${minutes}`;
 
-function forecast(){
-    let forecastElement = document.querySelector("#forecast");
-    let forecastHTML = `<div class="row">`;
-    let days = ["mon","tue","wed","thu","fri","sat","sun"];
-    days.forEach(function(day){
-        forecastHTML = forecastHTML + `
-        <div class="col-2">
-                <div class="date">${day}</div>
-                <img src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png" class="forecast-icon">
-                <span class="max-temp">18 </span><span class="min-temp">12</span>
-        </div>
-        `;
-    })
-    forecastHTML = forecastHTML + `</div>`
-    forecastElement.innerHTML = forecastHTML;
-}
-
-
 function defaultWeather(){
     function getGeo(position) {
         let lat = position.coords.latitude;
@@ -45,7 +27,6 @@ function defaultWeather(){
             let hum = document.querySelector("#humidity");
             let windVal = document.querySelector("#wind");
             let iconElem = document.querySelector("#icon");
-            forecast();
             
             celsiusTemp = response.data.main.temp;
                 
@@ -57,7 +38,9 @@ function defaultWeather(){
             windVal.innerHTML = `wind: ${response.data.wind.speed} km/h`;
             iconElem.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
             iconElem.setAttribute("alt", `${response.data.weather[0].description}`);
+            
         }
+
         axios.get(url).then(showWeather);
     }
     navigator.geolocation.getCurrentPosition(getGeo);
@@ -84,8 +67,6 @@ function search(event){
         let hum = document.querySelector("#humidity");
         let windVal = document.querySelector("#wind");
         let iconElem = document.querySelector("#icon");
-        forecast();
-
         celsiusTemp = response.data.main.temp;
         
         cityName.innerHTML = `${response.data.name}`;
