@@ -52,7 +52,8 @@ function geoWeather(){
     }
     navigator.geolocation.getCurrentPosition(getGeo);
 }
-//geoWeather();
+let currentWeatherButton = document.querySelector("#current-button");
+currentWeatherButton.addEventListener("click", geoWeather)
 
 function search(event){
     event.preventDefault();
