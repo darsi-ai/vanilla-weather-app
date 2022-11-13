@@ -15,9 +15,21 @@ dayTime.innerHTML = `${day} ${hour}:${minutes}`;
 
 function forecast(){
     let forecastElement = document.querySelector("#forecast");
-
-    forecastElement.innerHTML = "Forecast"
+    let forecastHTML = `<div class="row">`;
+    let days = ["mon","tue","wed","thu","fri","sat","sun"];
+    days.forEach(function(day){
+        forecastHTML = forecastHTML + `
+        <div class="col-2">
+                <div class="date">${day}</div>
+                <img src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png" class="forecast-icon">
+                <span class="max-temp">18 </span><span class="min-temp">12</span>
+        </div>
+        `;
+    })
+    forecastHTML = forecastHTML + `</div>`
+    forecastElement.innerHTML = forecastHTML;
 }
+
 
 function defaultWeather(){
     function getGeo(position) {
@@ -72,7 +84,8 @@ function search(event){
         let hum = document.querySelector("#humidity");
         let windVal = document.querySelector("#wind");
         let iconElem = document.querySelector("#icon");
-        
+        forecast();
+
         celsiusTemp = response.data.main.temp;
         
         cityName.innerHTML = `${response.data.name}`;
